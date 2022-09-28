@@ -12,8 +12,14 @@ import plotly.express as px
 # #####################################
 
 engine = create_engine("mysql+pymysql://data-student:u9AB6hWGsNkNcRDm@data.engeto.com:3306/data_academy_04_2022")
+query = '''SELECT
+            start_station_latitude as lat
+            start_station_longitude as lon
+        FROM from edinburgh_bikes
+        LIMIT 20000
+    '''
 
-df_bikes = pd.read_sql(sql='select * from edinburgh_bikes', con=engine)
+df_bikes = pd.read_sql(sql=query, con=engine)
 
 # #####################################
 # vizualizace
@@ -24,10 +30,9 @@ st.title('Moje prvni apka')
 page = st.sidebar.radio('Select page',['Mapa','Thomson'])
 
 if page == 'Mapa':
-    st.write('Mapa pouzivani sdilenych kol v edinburgu')
-    fig = px.scatter_mapbox(df_bikes, lat='start_station_latitude', lon='start_station_longitude')
-    fig.update_layout(mapbox_style="open-street-map")
-    fig.show()
+    st.write('Mapa pouzivani sdilenych kol v Edinburgu')
+    st.map(df_bikes)
+
 
 if page == 'Thomson':
     st.write('Thomson sampling')
