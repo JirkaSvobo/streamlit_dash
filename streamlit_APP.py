@@ -15,7 +15,7 @@ engine = create_engine("mysql+pymysql://data-student:u9AB6hWGsNkNcRDm@data.enget
 query = '''SELECT
             start_station_latitude as lat
             start_station_longitude as lon
-        FROM from edinburgh_bikes
+        FROM edinburgh_bikes
         LIMIT 20000
     '''
 
