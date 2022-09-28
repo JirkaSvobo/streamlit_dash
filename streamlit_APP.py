@@ -41,8 +41,8 @@ if page == 'Mapa':
     df_bikes_morning = pd.read_sql(sql=query_morning, con=engine)
     col1.map(df_bikes_morning)
 
-    from_hour_afternoon = col2.slider('odpoledne od', min_value=5, max_value=12)
-    to_hour_afternoon = col2.slider('odpoledne do', min_value=5, max_value=12)
+    from_hour_afternoon = col2.slider('odpoledne od', min_value=12, max_value=22)
+    to_hour_afternoon = col2.slider('odpoledne do', min_value=12, max_value=22)
     col2.write('Pocatecni stanice odpoledne mezi {} a {}'.format(from_hour_afternoon, to_hour_afternoon))
     query_afternoon = """SELECT
                          start_station_latitude as lat,
