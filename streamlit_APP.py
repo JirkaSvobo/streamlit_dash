@@ -44,7 +44,7 @@ if page == 'Mapa':
     from_hour_afternoon = col2.slider('odpoledne od', min_value=5, max_value=12)
     to_hour_afternoon = col2.slider('odpoledne do', min_value=5, max_value=12)
     col2.write('Pocatecni stanice odpoledne mezi {} a {}'.format(from_hour_afternoon, to_hour_afternoon))
-    query_morning = """SELECT
+    query_afternoon = """SELECT
                          start_station_latitude as lat,
                          start_station_longitude as lon
                      FROM edinburgh_bikes
