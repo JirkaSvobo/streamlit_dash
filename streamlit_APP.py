@@ -40,11 +40,12 @@ st.title('Moje prvni apka')
 page = st.sidebar.radio('Select page',['Mapa','Thomson'])
 
 if page == 'Mapa':
+    col1, col2 = st.columns(2)
     st.header('Mapa pouzivani sdilenych kol v Edinburgu')
-    st.write('Pocatecni stanice rano 6 az 9')
-    st.map(df_bikes_morning)
-    st.write('Pocatecni stanice odpoledne 15 az 19')
-    st.map(df_bikes_afternoon)
+    col1('Pocatecni stanice rano 6 az 9')
+    col1(df_bikes_morning)
+    col2('Pocatecni stanice odpoledne 15 az 19')
+    col2(df_bikes_afternoon)
 
 
 if page == 'Thomson':
